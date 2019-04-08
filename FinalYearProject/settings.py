@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'storages',
     'gallery',
+    'learning',
 
 ]
 
@@ -119,12 +120,13 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
-
+# save uploaded files
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+# how to serve these files
 MEDIA_URL = '/media/'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
-LOGIN_REDIRECT_URL = 'blog-home'
+LOGIN_REDIRECT_URL = 'home-page'
 LOGIN_URL = 'login'
 
 # password reset configurations

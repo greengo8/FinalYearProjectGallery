@@ -16,29 +16,28 @@
     {% if title %}
         <title>Mandarin Speakers Association - {{ title }}</title>
     {% else %}
-        <title>Mandarin Speakers Association</title>
+        <title> Mandarin Speakers Association</title>
     {% endif %}
 </head>
 <body>
 <header class="site-header">
     <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
         <div class="container">
-            <a class="navbar-brand mr-4" href="{% url 'blog-home' %}">Django Blog</a>
+            <a class="navbar-brand mr-4" href="{% url 'home-page' %}">Mandarin Speakers Association</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle"
                     aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarToggle">
                 <div class="navbar-nav mr-auto">
+                    <a class="nav-item nav-link" href="{% url 'about' %}">Contact Us</a>
                     <a class="nav-item nav-link" href="{% url 'blog-home' %}">Blog</a>
-                    <a class="nav-item nav-link" href="{% url 'blog-about' %}">About</a>
                     <a class="nav-item nav-link" href="{% url 'gallery-home' %}">Gallery</a>
+                    <a class="nav-item nav-link" href="{% url 'book-list' %}">Learning</a>
                 </div>
                 <!-- Navbar Right Side -->
                 <div class="navbar-nav">
                     {% if user.is_authenticated %}
-                        <a class="nav-item nav-link" href="{% url 'post-create' %}">New Post</a>
-                        <a class="nav-item nav-link" href="{% url 'gallery-post' %}">Upload Photos</a>
                         <a class="nav-item nav-link" href="{% url 'profile' %}">Profile</a>
                         <a class="nav-item nav-link" href="{% url 'logout' %}">Logout</a>
                     {% else %}
@@ -64,13 +63,15 @@
         </div>
         <div class="col-md-4">
             <div class="content-section">
-                <h3>Our Sidebar</h3>
-                <p class='text-muted'>You can put any information here you'd like.
+                <h3>Useful links</h3>
+                <p class='text-muted'>
                 <ul class="list-group">
-                    <li class="list-group-item list-group-item-light">Latest Posts</li>
-                    <li class="list-group-item list-group-item-light">Announcements</li>
-                    <li class="list-group-item list-group-item-light">Calendars</li>
-                    <li class="list-group-item list-group-item-light">etc</li>
+                    <li class="list-group-item list-group-item-light">
+                        <a href="https://www.facebook.com/pg/Mandarin-Speakers-Association-and-Chinese-School-1800432676885418/posts/">
+                            <img src="{% static 'blog/facebookimg.jpg' %}" width="50px" height="50px">
+                            Facebook </a></li>
+                    <li class="list-group-item list-group-item-light">Announcements?</li>
+
                 </ul>
                 </p>
             </div>

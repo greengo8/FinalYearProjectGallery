@@ -1,0 +1,53 @@
+{% extends "blog/base.html" %}
+{% block content %}
+    {% block content_header %}
+        <h1>book list</h1>
+        <p>
+            <a href="{% url 'upload-book' %}" class="btn btn-primary">Upload Book</a>
+        </p>
+    {% endblock %}
+    <table class="table mb-0">
+        <thread>
+            <tr>
+                <th>Cover</th>
+                <th> Title</th>
+                <th>Author</th>
+                <th>Download</th>
+                <th>Delete</th>
+            </tr>
+        </thread>
+        <tbody>
+        {% for book in books %}
+            <tr>
+                <td>
+                    {% if book.cover %}
+                        <img src="{{ book.cover.url }}" alt="{{ book.title }}" style="width:100px;">
+                    {% else %}
+                        <span class="text-muted">No cover</span>
+                    {% endif %}
+                </td>
+                <td>{{ book.title }}</td>
+                <td>{{ book.author }}</td>
+                <td>
+                    <a href="{{ book.pdf.url }}" class="btn btn-primary btn-sm" target="blank">
+                        Download PDF
+
+                    </a>
+                </td>
+                <td>
+                    <form method="post" action="{% url 'delete-book' book.pk %}">
+
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                    </form>
+
+                </td>
+            </tr>
+
+        {% endfor %}
+        </tbody>
+
+
+    </table>
+
+{% endblock content %}
