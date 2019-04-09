@@ -15,3 +15,16 @@ class Post(models.Model):
 
     def get_absolute_url(self):
         return reverse('post-detail', kwargs={'pk': self.pk})
+
+
+class Contact(models.Model):
+    email = models.EmailField()
+    subject = models.CharField(max_length=196)
+    message = models.TextField()
+
+    def __str__(self):
+        return self.email
+
+    @property
+    def get_absolute_url(self):
+        return reverse('post-detail', kwargs={'pk': self.pk})

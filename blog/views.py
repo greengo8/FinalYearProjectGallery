@@ -8,7 +8,7 @@ from django.views.generic import (
     UpdateView,
     DeleteView
 )
-from .models import Post
+from .models import Post, Contact
 
 
 def home(request):
@@ -80,9 +80,19 @@ class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
         return False
 
 
-def about(request):
-    return render(request, 'blog/about.html', {'title': 'About'})
-
-
 def home_page(request):
     return render(request, 'blog/home-page.html', {'title': 'home-page'})
+
+
+def contact_us(request):
+    if request.method == 'POST':
+        email_r = request.POST.get('email')
+        subject_r = request.POST.get('subject')
+        message_r = request.POST.get('message')
+
+        c = Contact(email=email_r, subject=subject_r, message=message_r)
+        c.save()
+
+        return render(request, 'blog/thank.html')
+    else:
+        return render(request, 'blog/contact_us.html')

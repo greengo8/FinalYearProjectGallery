@@ -14,7 +14,7 @@
     <link rel="stylesheet" type="text/css" href="{% static 'blog/main.css' %}">
 
     {% if title %}
-        <title>Mandarin Speakers Association - {{ title }}</title>
+        <title> Mandarin Speakers Association - {{ title }}</title>
     {% else %}
         <title> Mandarin Speakers Association</title>
     {% endif %}
@@ -30,7 +30,7 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarToggle">
                 <div class="navbar-nav mr-auto">
-                    <a class="nav-item nav-link" href="{% url 'about' %}">Contact Us</a>
+                    <a class="nav-item nav-link" href="{% url 'contact-us' %}">Contact Us</a>
                     <a class="nav-item nav-link" href="{% url 'blog-home' %}">Blog</a>
                     <a class="nav-item nav-link" href="{% url 'gallery-home' %}">Gallery</a>
                     <a class="nav-item nav-link" href="{% url 'book-list' %}">Learning</a>
